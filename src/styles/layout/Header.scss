@@ -1,0 +1,35 @@
+@import '../core/var';
+
+.container {
+    background-color: #302c42;
+    padding: 20px 20px 0px 20px;
+  }
+.header {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  &__title {
+    display: flex;
+    gap: 20px;
+  }
+  &__laptopIcon {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  &__text {
+    text-align: left;
+    font-size: 14px;
+    color: white;
+    font-family: $font-M;
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 123px;
+    height: auto;
+  }
+}
+
