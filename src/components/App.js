@@ -51,7 +51,7 @@ function App() {
       <Header logo={logo} />
       <main className='main'>
         <section className='description'>
-          <h1 className='description__title'>Proyectos Moloness</h1>
+          <h1 className='description__title'>Proyectos Molones</h1>
           <p className='description__text'>Escaparate en línea para recoger ideas a través de la tecnología.</p>
           <button className='description__button'>ver proyectos</button>
         </section>
