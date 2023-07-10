@@ -97,7 +97,26 @@ const Form = (props) => {
           onInput={handleInput}
         />
         <section className='form__project--container'>
+          {/* budget & URL */}
           <input
+            className='form__project--input budget'
+            type='text'
+            name='budget'
+            id='budget'
+            placeholder='Presupuesto'
+            value={props.data.repo}
+            onInput={handleInput}
+          />
+          <input
+            className='form__project--input link'
+            type='text'
+            placeholder='Enlace'
+            name='link'
+            id='link'
+            value={props.data.demo}
+            onInput={handleInput}
+          />
+          {/* <input
             className='form__project--input repo'
             type='text'
             name='repo'
@@ -105,8 +124,8 @@ const Form = (props) => {
             placeholder='Repo'
             value={props.data.repo}
             onInput={handleInput}
-          />
-          <input
+          /> */}
+          {/* <input
             className='form__project--input demo'
             type='text'
             placeholder='Demo'
@@ -114,9 +133,18 @@ const Form = (props) => {
             id='demo'
             value={props.data.demo}
             onInput={handleInput}
-          />
+          /> */}
         </section>
-        <input
+        <select defaultValue='' name='type' id='type'>
+          <option hidden value=''>Selecciona un tipo de proyecto</option>
+          <option value='ciencia'>Ciencia</option>
+          <option value='cultura'>Cultura</option>
+          <option value='infraestructura'>Infraestructura</option>
+          <option value='parques'>Parques y jardines</option>
+          <option value='sanitario'>Sanidad</option>
+          <option value='tecnologia'>Tecnología</option>
+        </select>
+        {/* <input
           className='form__project--input'
           type='text'
           placeholder='Tecnologías'
@@ -124,7 +152,7 @@ const Form = (props) => {
           id='technologies'
           value={props.data.technologies}
           onInput={handleInput}
-        />
+        /> */}
         <textarea
           className='form__project--textarea'
           type='text'
@@ -160,6 +188,12 @@ const Form = (props) => {
           value={props.data.job}
           onInput={handleInput}
         />
+        <label htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
+        <select name="intention" id="intention">
+          <option hidden value="">Marca una de las opciones</option>
+          <option value="yes">Sí</option>
+          <option value="no">No</option>
+        </select>
         <GetAvatar text='Subir foto de autora' avatar={props.data.image} updateAvatar={handleImage} />
       </fieldset>
       <section className='form__submit'>
