@@ -20,7 +20,7 @@ const PreviewCard = (props) => {
         </p>
         <div className='card__technologies'>
           <p className='card__technologies--text'>{props.data.type || 'React JS, MongoDB'}</p>
-          <p className='card__technologies--text'>{props.data.budget || 'React JS, MongoDB'}</p>
+          <p className='card__technologies--text'>{props.data.budget ? `$ ${props.data.budget}` : '$9999'}</p>
           <div className='card__technologies--icons'>
             <a href={props.data.link} className='icons__link' target='_blank' rel='noreferrer'>
               <i className='fa-solid fa-globe card__technologies--globe'></i>

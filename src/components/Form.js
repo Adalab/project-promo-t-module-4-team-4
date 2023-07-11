@@ -101,7 +101,7 @@ const Form = (props) => {
           {/* budget & URL */}
           <input
             className='form__project--input budget'
-            type='text'
+            type='number'
             name='budget'
             id='budget'
             placeholder='Presupuesto'
