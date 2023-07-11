@@ -2,7 +2,7 @@ import user from '../images/user.jpg';
 
 const PreviewCard = (props) => {
   return (
-    <section className='card'>
+    <section className={`card ${props.data.intention === 'yes' ? 'card__darkmode' : ''}`}>
       <div className='card__autor'>
         <img className='card__autor--image' src={props.data.image || user} alt='user' />
         <p className='card__autor--job'>{props.data.job || 'Full Stack Developer'}</p>
@@ -19,13 +19,11 @@ const PreviewCard = (props) => {
             'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!'}
         </p>
         <div className='card__technologies'>
-          <p className='card__technologies--text'>{props.data.technologies || 'React JS, MongoDB'}</p>
+          <p className='card__technologies--text'>{props.data.type || 'React JS, MongoDB'}</p>
+          <p className='card__technologies--text'>{props.data.budget || 'React JS, MongoDB'}</p>
           <div className='card__technologies--icons'>
-            <a href={props.data.demo} className='icons__link' target='_blank' rel='noreferrer'>
+            <a href={props.data.link} className='icons__link' target='_blank' rel='noreferrer'>
               <i className='fa-solid fa-globe card__technologies--globe'></i>
-            </a>
-            <a href={props.data.repo} className='icons__link' target='_blank' rel='noreferrer'>
-              <i className='fa-brands fa-github card__technologies--github'></i>
             </a>
           </div>
         </div>

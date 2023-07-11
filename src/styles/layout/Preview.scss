@@ -22,6 +22,11 @@
   padding: 20px 15px;
   border-radius: 20px;
   background-color: $white;
+  &__darkmode {
+    background-color: black;
+    color: greenyellow;
+    box-shadow: 10px 10px 10px rgb(42, 2, 42);
+  }
   &__autor {
     width: 30%;
     display: flex;
