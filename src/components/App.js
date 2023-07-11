@@ -33,14 +33,15 @@ function App() {
     setData({
       name: '',
       slogan: '',
-      repo: '',
-      demo: '',
-      technologies: '',
+      budget: '',
+      link: '',
+      type: '',
       desc: '',
       autor: '',
       job: '',
       image: '',
       photo: '',
+      intention: '',
     });
   };
 

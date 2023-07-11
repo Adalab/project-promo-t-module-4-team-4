@@ -53,14 +53,15 @@ const Form = (props) => {
     ls.set('data', {
       name: props.data.name,
       slogan: props.data.slogan,
-      repo: props.data.repo,
-      demo: props.data.demo,
-      technologies: props.data.technologies,
+      budget: props.data.budget,
+      link: props.data.link,
+      type: props.data.type,
       desc: props.data.desc,
       autor: props.data.autor,
       job: props.data.job,
       image: props.data.image,
       photo: props.data.photo,
+      intention: props.data.intention
     });
   }, [props.data]);
 
@@ -104,7 +105,7 @@ const Form = (props) => {
             name='budget'
             id='budget'
             placeholder='Presupuesto'
-            value={props.data.repo}
+            value={props.data.budget}
             onInput={handleInput}
           />
           <input
@@ -113,29 +114,11 @@ const Form = (props) => {
             placeholder='Enlace'
             name='link'
             id='link'
-            value={props.data.demo}
+            value={props.data.link}
             onInput={handleInput}
           />
-          {/* <input
-            className='form__project--input repo'
-            type='text'
-            name='repo'
-            id='repo'
-            placeholder='Repo'
-            value={props.data.repo}
-            onInput={handleInput}
-          /> */}
-          {/* <input
-            className='form__project--input demo'
-            type='text'
-            placeholder='Demo'
-            name='demo'
-            id='demo'
-            value={props.data.demo}
-            onInput={handleInput}
-          /> */}
         </section>
-        <select defaultValue='' name='type' id='type'>
+        <select defaultValue='' name='type' id='type' onChange={handleInput}>
           <option hidden value=''>Selecciona un tipo de proyecto</option>
           <option value='ciencia'>Ciencia</option>
           <option value='cultura'>Cultura</option>
@@ -144,15 +127,6 @@ const Form = (props) => {
           <option value='sanitario'>Sanidad</option>
           <option value='tecnologia'>Tecnología</option>
         </select>
-        {/* <input
-          className='form__project--input'
-          type='text'
-          placeholder='Tecnologías'
-          name='technologies'
-          id='technologies'
-          value={props.data.technologies}
-          onInput={handleInput}
-        /> */}
         <textarea
           className='form__project--textarea'
           type='text'
@@ -189,7 +163,7 @@ const Form = (props) => {
           onInput={handleInput}
         />
         <label htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
-        <select name="intention" id="intention">
+        <select defaultValue='' name="intention" id="intention" onChange={handleInput}>
           <option hidden value="">Marca una de las opciones</option>
           <option value="yes">Sí</option>
           <option value="no">No</option>
