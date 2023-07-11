@@ -10,6 +10,7 @@ import ls from '../services/localStorage';
 import { Route, Routes } from 'react-router-dom';
 import ProjectList from './ProjectList';
 import Description from './Description';
+import Landing from './Landing';
 
 //Usar una variable objeto para todos los inputs
 
@@ -55,7 +56,7 @@ function App() {
       <Header logo={logo} />
       <main className='main'>
         <Routes>
-          <Route path='/' element={'landing page'} />
+          <Route path='/' element={<Landing />} />
           <Route path='/projects' element={<ProjectList data={data} />} />
           <Route
             path='/new-project'
