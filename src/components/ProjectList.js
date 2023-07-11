@@ -9,8 +9,6 @@ const ProjectList = () => {
     <ul className='project__list'>
       <ProjectListCard />
       <ProjectListCard />
-      <ProjectListCard />
-      <ProjectListCard />
     </ul>
     </>
     
