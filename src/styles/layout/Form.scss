@@ -43,7 +43,6 @@
       background-color: transparent;
       border-radius: 40px;
       height: 32px;
-
       color: $white;
       font-size: 1rem;
       padding-left: 17px;
@@ -52,18 +51,26 @@
         font-family: $font-M;
       }
 
-      &.repo,
-      &.demo {
+      &.budget,
+      &.link {
         width: 45%;
         margin: 0;
       }
+    }
+    &--select {
+      font-family: $font-M;
+      background-color: $dark-lilac;
+      border-radius: 40px;
+      height: 32px;
+      color: $white;
+      font-size: 1.2rem;
+      padding-left: 17px;
     }
     &--textarea {
       border: solid 2px $white;
       background-color: transparent;
       border-radius: 20px;
       height: 83px;
-
       color: $white;
       font-size: 1rem;
       padding-left: 17px;
@@ -93,6 +100,22 @@
         color: $white;
         font-family: $font-M;
       }
+    }
+    &--label {
+      color: $white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    &--select {
+      font-family: $font-M;
+      background-color: $dark-lilac;
+      border-radius: 40px;
+      height: 32px;
+      color: $white;
+      font-size: 1.2rem;
+      padding-left: 17px;
+      margin-bottom: 10px;
     }
   }
 

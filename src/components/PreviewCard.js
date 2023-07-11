@@ -19,7 +19,7 @@ const PreviewCard = (props) => {
             'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!'}
         </p>
         <div className='card__technologies'>
-          <p className='card__technologies--text'>{props.data.type || 'React JS, MongoDB'}</p>
+          <p className='card__technologies--text'>{props.data.type || 'Tipo de proyecto'}</p>
           <p className='card__technologies--text'>{props.data.budget ? `$ ${props.data.budget}` : '$9999'}</p>
           <div className='card__technologies--icons'>
             <a href={props.data.link} className='icons__link' target='_blank' rel='noreferrer'>

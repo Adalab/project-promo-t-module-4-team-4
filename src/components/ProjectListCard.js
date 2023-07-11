@@ -15,17 +15,20 @@ const ProjectListCard = () => {
         <h2 className='plcard__infoProject--title'>{'Elegant Workspace'}</h2>
         <p className='plcard__infoProject--slogan'>{'Diseños Exclusivos'}</p>
         <p className='plcard__infoProject--desc'>
-          {'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!'}
+          {
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam, ullam culpa accusantium placeat odit corrupti ipsum!'
+          }
         </p>
         <div className='plcard__technologies'>
-          <p className='plcard__technologies--text'>{'React JS, MongoDB'}</p>
+          <p className='plcard__technologies--text'>{'Infraestructura'}</p>
+          <p className='card__technologies--text'>{'$9999'}</p>
           <div className='plcard__technologies--icons'>
             <a href={'/#'} className='icons__link' target='_blank' rel='noreferrer'>
               <i className='fa-solid fa-globe plcard__technologies--globe'></i>
             </a>
-            <a href={'/#'} className='icons__link' target='_blank' rel='noreferrer'>
+            {/* <a href={'/#'} className='icons__link' target='_blank' rel='noreferrer'>
               <i className='fa-brands fa-github plcard__technologies--github'></i>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

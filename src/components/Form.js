@@ -118,14 +118,14 @@ const Form = (props) => {
             onInput={handleInput}
           />
         </section>
-        <select defaultValue='' name='type' id='type' onChange={handleInput}>
+        <select className='form__project--select' defaultValue='' name='type' id='type' onChange={handleInput}>
           <option hidden value=''>Selecciona un tipo de proyecto</option>
-          <option value='ciencia'>Ciencia</option>
-          <option value='cultura'>Cultura</option>
-          <option value='infraestructura'>Infraestructura</option>
-          <option value='parques'>Parques y jardines</option>
-          <option value='sanitario'>Sanidad</option>
-          <option value='tecnologia'>Tecnología</option>
+          <option value='Ciencia'>Ciencia</option>
+          <option value='Cultura'>Cultura</option>
+          <option value='Infraestructura'>Infraestructura</option>
+          <option value='Parques'>Parques y jardines</option>
+          <option value='Sanidad'>Sanidad</option>
+          <option value='Tecnologia'>Tecnología</option>
         </select>
         <textarea
           className='form__project--textarea'
@@ -162,8 +162,8 @@ const Form = (props) => {
           value={props.data.job}
           onInput={handleInput}
         />
-        <label htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
-        <select defaultValue='' name="intention" id="intention" onChange={handleInput}>
+        <label className='form__autor--label' htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
+        <select className='form__autor--select' defaultValue='' name="intention" id="intention" onChange={handleInput}>
           <option hidden value="">Marca una de las opciones</option>
           <option value="yes">Sí</option>
           <option value="no">No</option>

@@ -84,13 +84,13 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .preview {
+/*  .preview {
     width: 50%;
-    &__imageContainer {
+     &__imageContainer {
       height: 74.5%;
       width: auto;
-    }
-    & .card {
+    } 
+    &*/ .plcard {
       max-width: 423px;
       height: 155px;
       width: 300px;
@@ -114,7 +114,7 @@
           font-size: 1.2rem;
         }
         &--desc {
-          font-size: 0.8rem;
+          font-size: 1rem;
         }
       }
       &__technologies {
@@ -125,15 +125,15 @@
       }
     }
   }
-}
+/* } */
 
 @media screen and (min-width: 1024px) {
-  .preview {
-    width: 50%;
-    &__imageContainer {
+  /* .preview {
+    width: 50%; */
+    /* &__imageContainer {
       height: 70.7%;
-    }
-    & .card {
+    } 
+    &*/ .plcard {
       height: 200px;
       width: 375px;
       &__autor {
@@ -169,4 +169,4 @@
       }
     }
   }
-}
+/* } */
