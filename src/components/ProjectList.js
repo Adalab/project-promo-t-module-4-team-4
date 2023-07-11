@@ -1,15 +1,19 @@
-import { Link } from 'react-router-dom';
 import ProjectListCard from './ProjectListCard';
 import '../styles/layout/ProjectList.scss';
+import Description from './Description';
 
-const ProjectList = (props) => {
+const ProjectList = () => {
   return (
+    <>
+    <Description text={'Nuevo proyecto'} link={'/new-project'} />
     <ul className='project__list'>
-      <ProjectListCard data={props.data} />
-      <ProjectListCard data={props.data} />
-      <ProjectListCard data={props.data} />
-      <ProjectListCard data={props.data} />
+      <ProjectListCard />
+      <ProjectListCard />
+      <ProjectListCard />
+      <ProjectListCard />
     </ul>
+    </>
+    
   );
 }
 
