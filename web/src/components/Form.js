@@ -1,7 +1,7 @@
 import '../styles/layout/Form.scss';
 import { useState, useEffect } from 'react';
 import GetAvatar from './GetAvatar';
-import callToApi from '../services/api';
+import objectApi from '../services/api';
 import ls from '../services/localStorage';
 
 const Form = (props) => {
@@ -40,7 +40,7 @@ const Form = (props) => {
 
   const handleClickCreateCard = (ev) => {
     ev.preventDefault();
-    callToApi(props.data).then((dataAPI) => {
+    objectApi.callToApi(props.data).then((dataAPI) => {
       if (dataAPI.success) {
         setMessage(renderMsgSuccess(dataAPI));
       } else {

@@ -1,5 +1,3 @@
-
-
 const callToApi = (data) => {
   return fetch('https://dev.adalab.es/api/projectCard', {
     method: 'POST',
@@ -12,4 +10,15 @@ const callToApi = (data) => {
     });
 };
 
-export default callToApi;
+const getApiProjects = async () => {
+  const response = await fetch('http://localhost:3000/api/projects');
+  const dataJson = await response.json();
+  return dataJson;
+};
+
+const objectApi = {
+  callToApi: callToApi,
+  getApiProjects: getApiProjects,
+};
+
+export default objectApi;
