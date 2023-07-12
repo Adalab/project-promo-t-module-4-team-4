@@ -54,9 +54,8 @@ function App() {
     setData(clonedData);
   };
 
-  useEffect ( () => {
-    objectApi.getApiProjects()
-    .then( data => {
+  useEffect(() => {
+    objectApi.getApiProjects().then((data) => {
       const cleanData = data.map((eachProject) => ({
         id: eachProject.idproject,
         name: eachProject.nameProject,
@@ -72,15 +71,13 @@ function App() {
         intention: eachProject.intentionAuthor,
       }));
       setProjectList(cleanData);
-    })
-    
+    });
+
     // clean data
-    
-  }, [])
+  }, []);
 
   return (
     <div className='container'>
-      <Header logo={logo} />
       <main className='main'>
         <Routes>
           <Route path='/' element={<Landing />} />
@@ -89,6 +86,7 @@ function App() {
             path='/new-project'
             element={
               <>
+                <Header logo={logo} />
                 <Description text={'Ver proyectos'} link={'/projects'} />
                 <section className='mainContainer'>
                   <Preview image={user} data={data} />
