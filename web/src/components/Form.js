@@ -165,8 +165,8 @@ const Form = (props) => {
         <label className='form__autor--label' htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
         <select className='form__autor--select' defaultValue='' name="intention" id="intention" onChange={handleInput}>
           <option hidden value="">Marca una de las opciones</option>
-          <option value="yes">Sí</option>
-          <option value="no">No</option>
+          <option value="1">Sí</option>
+          <option value="0">No</option>
         </select>
         <GetAvatar text='Subir foto de autora' avatar={props.data.image} updateAvatar={handleImage} />
       </fieldset>

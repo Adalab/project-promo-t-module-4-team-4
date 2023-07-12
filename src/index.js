@@ -7,7 +7,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 
 // listen to the server
-const port = 3000;
+const port = 4000;
 server.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

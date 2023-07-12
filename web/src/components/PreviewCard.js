@@ -2,7 +2,7 @@ import user from '../images/user.jpg';
 
 const PreviewCard = (props) => {
   return (
-    <section className={`card ${props.data.intention === 'yes' ? 'card__darkmode' : ''}`}>
+    <section className={`card ${props.data.intention === '1' ? 'card__darkmode' : ''}`}>
       <div className='card__autor'>
         <img className='card__autor--image' src={props.data.image || user} alt='user' />
         <p className='card__autor--job'>{props.data.job || 'Full Stack Developer'}</p>

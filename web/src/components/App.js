@@ -1,5 +1,5 @@
 import '../styles/App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import Preview from './Preview';
 import Form from './Form';
@@ -11,6 +11,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProjectList from './ProjectList';
 import Description from './Description';
 import Landing from './Landing';
+import objectApi from '../services/api';
 
 //Usar una variable objeto para todos los inputs
 
@@ -29,6 +30,8 @@ function App() {
       photo: '',
     })
   );
+
+  const [projectList, setProjectList] = useState([]);
 
   const clearData = () => {
     setData({
@@ -51,24 +54,46 @@ function App() {
     setData(clonedData);
   };
 
+  useEffect ( () => {
+    objectApi.getApiProjects()
+    .then( data => {
+      const cleanData = data.map((eachProject) => ({
+        name: eachProject.nameProject,
+        slogan: eachProject.sloganProject,
+        budget: eachProject.budgetProject,
+        link: eachProject.URLProject,
+        type: eachProject.typeProject,
+        desc: eachProject.descProject,
+        autor: eachProject.nameAuthor,
+        job: eachProject.jobAuthor,
+        image: eachProject.imageProject,
+        photo: eachProject.photoAuthor,
+        intention: eachProject.intentionAuthor,
+      }));
+      setProjectList(cleanData);
+    })
+    
+    // clean data
+    
+  }, [])
+
   return (
     <div className='container'>
       <Header logo={logo} />
       <main className='main'>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/projects' element={<ProjectList data={data} />} />
+          <Route path='/projects' element={<ProjectList projectList={projectList} />} />
           <Route
             path='/new-project'
             element={
               <>
-              <Description text={'Ver proyectos'} link={'/projects'}/>
-              <section className='mainContainer'>
-                <Preview image={user} data={data} />
-                <Form data={data} handleChangeForm={handleChangeForm} clearData={clearData} />
-              </section>
+                <Description text={'Ver proyectos'} link={'/projects'} />
+                <section className='mainContainer'>
+                  <Preview image={user} data={data} />
+                  <Form data={data} handleChangeForm={handleChangeForm} clearData={clearData} />
+                </section>
               </>
-              
             }
           ></Route>
         </Routes>

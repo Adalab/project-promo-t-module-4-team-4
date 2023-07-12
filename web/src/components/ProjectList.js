@@ -2,7 +2,7 @@ import ProjectListCard from './ProjectListCard';
 import '../styles/layout/ProjectList.scss';
 import Description from './Description';
 
-const ProjectList = () => {
+const ProjectList = ({ projectList }) => {
   return (
     <>
       <Description text={'Nuevo proyecto'} link={'/new-project'} />
@@ -14,6 +14,6 @@ const ProjectList = () => {
       </ul>
     </>
   );
-}
+};
 
 export default ProjectList;

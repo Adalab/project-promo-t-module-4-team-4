@@ -11,8 +11,9 @@ const callToApi = (data) => {
 };
 
 const getApiProjects = async () => {
-  const response = await fetch('http://localhost:3000/api/projects');
+  const response = await fetch('http://localhost:4000/api/projects');
   const dataJson = await response.json();
+  console.log(dataJson);
   return dataJson;
 };
 
