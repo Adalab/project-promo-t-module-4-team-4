@@ -58,6 +58,7 @@ function App() {
     objectApi.getApiProjects()
     .then( data => {
       const cleanData = data.map((eachProject) => ({
+        id: eachProject.idproject,
         name: eachProject.nameProject,
         slogan: eachProject.sloganProject,
         budget: eachProject.budgetProject,

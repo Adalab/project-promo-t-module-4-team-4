@@ -1,6 +1,5 @@
 import '../styles/layout/Preview.scss';
-import image from '../images/cover.jpeg';
-import user from '../images/user.jpg';
+import image from '../images/cover.jpg';
 import PreviewCard from './PreviewCard';
 
 const Preview = (props) => {
