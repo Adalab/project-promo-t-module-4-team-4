@@ -86,14 +86,14 @@ function App() {
           <Route
             path='/new-project'
             element={
-              <>
+              <section className='newproject'>
                 <Header logo={logo} />
                 <Description text={'Ver proyectos'} link={'/projects'} />
                 <section className='mainContainer'>
                   <Preview image={user} data={data} />
                   <Form data={data} handleChangeForm={handleChangeForm} clearData={clearData} />
                 </section>
-              </>
+              </section>
             }
           ></Route>
         </Routes>
