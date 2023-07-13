@@ -1,16 +1,5 @@
 @import '../core/var';
 
-.container {
-    background-color: #302c42;
-    padding: 20px 20px 0px 20px;
-    //height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-.main {
-  min-height: calc( 100vh - 46px - 90px - 20px); // 100vh - header, footer, container padding-top
-}
 .header {
   display: flex;
   gap: 20px;

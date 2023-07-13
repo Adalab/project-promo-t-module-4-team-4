@@ -22,8 +22,16 @@ const Form = (props) => {
   const renderMsgSuccess = (dataAPI) => {
     return (
       <>
-        <span className='form__card--success'> La tarjeta ha sido creada: </span>
-        <a href={dataAPI.cardURL} className='success__link' target='_blank' rel='noreferrer'>
+        <span className='form__card--success'>
+          {' '}
+          La tarjeta ha sido creada:{' '}
+        </span>
+        <a
+          href={dataAPI.cardURL}
+          className='success__link'
+          target='_blank'
+          rel='noreferrer'
+        >
           {dataAPI.cardURL}
         </a>
       </>
@@ -33,7 +41,8 @@ const Form = (props) => {
   const renderMsgError = () => {
     return (
       <span className='form__card--error'>
-        Ha habido un error al crear la tarjeta. Compruebe que todos los campos están rellenos
+        Ha habido un error al crear la tarjeta. Compruebe que todos los campos
+        están rellenos
       </span>
     );
   };
@@ -61,7 +70,7 @@ const Form = (props) => {
       job: props.data.job,
       image: props.data.image,
       photo: props.data.photo,
-      intention: props.data.intention
+      intention: props.data.intention,
     });
   }, [props.data]);
 
@@ -118,8 +127,16 @@ const Form = (props) => {
             onInput={handleInput}
           />
         </section>
-        <select className='form__project--select' defaultValue='' name='type' id='type' onChange={handleInput}>
-          <option hidden value=''>Selecciona un tipo de proyecto</option>
+        <select
+          className='form__project--select'
+          defaultValue=''
+          name='type'
+          id='type'
+          onChange={handleInput}
+        >
+          <option hidden value=''>
+            Selecciona un tipo de proyecto
+          </option>
           <option value='Ciencia'>Ciencia</option>
           <option value='Cultura'>Cultura</option>
           <option value='Infraestructura'>Infraestructura</option>
@@ -136,7 +153,11 @@ const Form = (props) => {
           value={props.data.desc}
           onInput={handleInput}
         ></textarea>
-        <GetAvatar text='Subir foto de proyecto' avatar={props.data.photo} updateAvatar={handlePhoto} />
+        <GetAvatar
+          text='Subir foto de proyecto'
+          avatar={props.data.photo}
+          updateAvatar={handlePhoto}
+        />
       </fieldset>
       <section className='form__ask-info autor'>
         <p className='subtitle'>Cuéntanos sobre la autora</p>
@@ -162,20 +183,34 @@ const Form = (props) => {
           value={props.data.job}
           onInput={handleInput}
         />
-        <label className='form__autor--label' htmlFor="intention">¿Tu proyecto tiene intenciones malignas para la ciudad?</label>
-        <select className='form__autor--select' defaultValue='' name="intention" id="intention" onChange={handleInput}>
-          <option hidden value="">Marca una de las opciones</option>
-          <option value="1">Sí</option>
-          <option value="0">No</option>
+        <GetAvatar
+          text='Subir foto de autora'
+          avatar={props.data.image}
+          updateAvatar={handleImage}
+        />
+        <label className='form__autor--label' htmlFor='intention'>
+          ¿Tu proyecto tiene intenciones malignas para la ciudad?
+        </label>
+        <select
+          className='form__autor--select'
+          defaultValue=''
+          name='intention'
+          id='intention'
+          onChange={handleInput}
+        >
+          <option hidden value=''>
+            Marca una de las opciones
+          </option>
+          <option value='1'>Sí</option>
+          <option value='0'>No</option>
         </select>
-        <GetAvatar text='Subir foto de autora' avatar={props.data.image} updateAvatar={handleImage} />
       </fieldset>
       <section className='form__submit'>
-        <button className='form__submit-reset' onClick={handleClearForm}>
-          Borrar todo
-        </button>
         <button className='form__submit-large' onClick={handleClickCreateCard}>
           Crear Tarjeta
+        </button>
+        <button className='form__submit-reset' onClick={handleClearForm}>
+          Borrar todo
         </button>
       </section>
 

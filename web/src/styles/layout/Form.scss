@@ -106,6 +106,7 @@
       font-size: 1.2rem;
       font-weight: bold;
       text-align: center;
+      margin-top: 10px;
     }
     &--select {
       font-family: $font-M;
@@ -153,14 +154,14 @@
     width: initial;
     gap: 10px;
     &-reset {
-      color: rgb(255, 195, 83);
+      color: rgb(31, 31, 31);
       background-color: $dark-lilac;
       height: 31px;
       border-radius: 40px;
       font-size: 1rem;
       font-weight: bold;
       font-family: $font-M;
-      border: solid 2px orange;
+      border: solid 2px rgb(75, 75, 75);
       width: 140px;
       cursor: pointer;
     }

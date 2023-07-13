@@ -8,6 +8,11 @@
     margin: auto;
     background-size: cover;
     background-position: center;
+    &-dark {
+      border: 3px solid black;
+      box-shadow: 10px 10px 10px rgb(42, 2, 42);
+      border-radius: 20px;
+    }
   }
 }
 .card {
@@ -37,6 +42,7 @@
     font-family: $font-C;
     &--image {
       width: 70.5px;
+      border-radius: 50%;
     }
     &--job {
       word-break: break-word;
