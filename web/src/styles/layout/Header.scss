@@ -7,13 +7,17 @@
   justify-content: space-between;
   align-items: center;
   height: 46px;
+  &__icon {
+    height: 35px;
+    align-items: center;
+  }
   &__link {
     text-decoration: none;
   }
   &__title {
     display: flex;
     gap: 20px;
-    
+    align-items: center;
   }
   &__laptopIcon {
     font-size: 2rem;

@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import '../styles/layout/Header.scss';
+import phone from '../images/phone.png'
 
 const Header = (props) => {
   return (
     <header className={`header ${props.padding}`}>
       <Link to='/' className='header__link'>
       <div className='header__title'>
-        <i className='fa-solid fa-laptop-code header__laptopIcon'></i>
-        <p className='header__text'>Proyectos Molones</p>
+        <img className='header__icon' src={phone} alt="" title='Proyectos para Townsville'/>
+        <p className='header__text'>Proyectos para Townsville</p>
       </div>
       </Link>
       <div className='header__img'>

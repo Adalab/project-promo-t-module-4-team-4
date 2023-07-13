@@ -143,6 +143,7 @@ const Form = (props) => {
           <option value='Parques'>Parques y jardines</option>
           <option value='Sanidad'>Sanidad</option>
           <option value='Tecnologia'>Tecnología</option>
+          <option value='Seguridad'>Seguridad</option>
         </select>
         <textarea
           className='form__project--textarea'
