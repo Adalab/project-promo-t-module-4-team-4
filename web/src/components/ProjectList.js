@@ -12,7 +12,7 @@ const ProjectList = ({ projectList }) => {
   ));
   return (
     <>
-    <Header logo={logo} />
+    <Header logo={logo} padding={'padding'}/>
       <Description text={'Nuevo proyecto'} link={'/new-project'} />
       <ul className='project__list'>{projectsLi}</ul>
     </>

@@ -3,7 +3,7 @@ import '../styles/layout/Header.scss';
 
 const Header = (props) => {
   return (
-    <header className='header'>
+    <header className={`header ${props.padding}`}>
       <Link to='/' className='header__link'>
       <div className='header__title'>
         <i className='fa-solid fa-laptop-code header__laptopIcon'></i>

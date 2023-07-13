@@ -6,7 +6,7 @@ import logo from '../images/logo-adalab.png'
 const Landing = () => {
     return (
       <div className='landing__img'>
-        <Header logo={logo} />
+        <Header logo={logo} padding={'padding'} />
         <section className='landing'>
           <Description text={'Nuevo proyecto'} link={'/new-project'} />
         </section>
