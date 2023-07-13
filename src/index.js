@@ -43,3 +43,39 @@ async function getConnection() {
   console.log(`Connection successful with database (identifier=${connection.threadId})`);
   return connection;
 }
+
+server.post('/api/projects/add', async (req, res) => {
+  const body = req.body;
+  console.log(body)
+
+  let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
+  const connect = await getConnection();
+  const [result] = await connect.query(insertAuthors, [
+    body.autor,
+    body.intention,
+    body.job,
+    body.photo
+  ]);
+  const idAuthor = result.insertId;
+
+  let insertProject = 'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
+
+  const [resultProject] = await connect.query(insertProject, [
+    body.name,
+    body.slogan,
+    body.link,
+    body.budget,
+    body.type,
+    body.desc,
+    body.image,
+    idAuthor
+  ]);
+
+
+  res.json({
+    success: true,
+    cardURL: `http://localhost:4000/project/${resultProject.insertId}`
+  })
+
+})
+
