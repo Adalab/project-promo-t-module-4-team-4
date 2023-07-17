@@ -10,34 +10,41 @@
         rel="stylesheet">
     <title>Proyectos Molones</title>
     <script src="https://kit.fontawesome.com/1aa62fa5ff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
-    <section class='preview'>
-        <div class='preview__imageContainer preview__imageContainer-dark' style="background-image: url('<%= imageProject %>')"></div>
-        <section class='card'>
-            <div class='card__autor'>
-                <img class='card__autor--image' src='<%= photoAuthor %>' alt='user' />
-                <p class='card__autor--job'><%= jobAuthor %></p>
-                <p class='card__autor--'><%= nameAuthor %></p>
-            </div>
-            <div class='card__infoProject'>
-                <p class='card__infoProject--subtitle'>Personal Project Card</p>
-                <hr class='line' />
-                <h2 class='card__infoProject--title'><%= nameProject %></h2>
-                <p class='card__infoProject--slogan'><%= sloganProject %></p>
-                <p class='card__infoProject--desc'><%= descProject %></p>
-                <div class='card__technologies'>
-                    <p class='card__technologies--text'><%= typeProject %></p>
-                    <p class='card__technologies--text'><%= budgetProject %></p>
-                    <div class='card__technologies--icons'>
-                        <a href='<%= URLProject %>' class='icons__link' target='_blank' rel='noreferrer'>
-                            <i class='fa-solid fa-globe card__technologies--globe'></i>
-                        </a>
+    <main class="main">
+        <section class='description'>
+            <h1 class='description__title'>¡Muchas gracias por ayudar a Townsville!</h1>
+            <p class='description__text'>Aquí tienes tu proyecto</p>
+        </section>
+        <section class='project'>
+            <div class='project__imageContainer project__imageContainer-dark' style="background-image: url('<%= imageProject %>')"></div>
+            <section class='card'>
+                <div class='card__autor'>
+                    <div class="card__autor--image" style="background-image: url('<%= photoAuthor %>')"></div>
+                    <p class='card__autor--job'><%= jobAuthor %></p>
+                    <p class='card__autor--'><%= nameAuthor %></p>
+                </div>
+                <div class='card__infoProject'>
+                    <p class='card__infoProject--subtitle'>Personal Project Card</p>
+                    <hr class='line' />
+                    <h2 class='card__infoProject--title'><%= nameProject %></h2>
+                    <p class='card__infoProject--slogan'><%= sloganProject %></p>
+                    <p class='card__infoProject--desc'><%= descProject %></p>
+                    <div class='card__technologies'>
+                        <p class='card__technologies--text'><%= typeProject %></p>
+                        <p class='card__technologies--text'><%= budgetProject %></p>
+                        <div class='card__technologies--icons'>
+                            <a href='<%= URLProject %>' class='icons__link' target='_blank' rel='noreferrer'>
+                                <i class='fa-solid fa-globe card__technologies--globe'></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
-    </section>
+    </main>
 </body>
 
 </html>

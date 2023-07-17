@@ -52,7 +52,7 @@ server.post('/api/projects/add', async (req, res) => {
     body.autor,
     body.intention,
     body.job,
-    body.photo
+    body.image
   ]);
   const idAuthor = result.insertId;
   let insertProject = 'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
@@ -63,7 +63,7 @@ server.post('/api/projects/add', async (req, res) => {
     body.budget,
     body.type,
     body.desc,
-    body.image,
+    body.photo,
     idAuthor
   ]);
   res.json({
@@ -82,3 +82,7 @@ server.get('/project/:idProject', async (req, res) => {
   connect.end();
 });
 
+// estáticos
+
+const pathServerPublicStyles = './src/public-css';
+server.use(express.static(pathServerPublicStyles));

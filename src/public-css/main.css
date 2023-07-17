@@ -1,0 +1,358 @@
+/* colors */
+/* fonts */
+/* colors */
+/* fonts */
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20%;
+  padding-bottom: 10px;
+}
+.description__title {
+  margin: 20px 0 8px 10px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+.description__text {
+  margin: 8px 51px 18px 63px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+.description__button {
+  width: 119.4px;
+  height: 25px;
+  margin: 3px 0 0 18px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: white;
+  background-color: #8176af;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .description__title {
+    font-size: 3.5rem;
+  }
+  .description__text {
+    font-size: 1.6rem;
+  }
+  .description__button {
+    font-size: 1.3rem;
+    width: 170px;
+    height: 35px;
+  }
+  .mainContainer {
+    display: flex;
+    gap: 15px;
+    margin: 0 17px;
+    margin-top: 21px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .description__title {
+    font-size: 4rem;
+  }
+  .description__text {
+    font-size: 1.8rem;
+  }
+  .description__button {
+    font-size: 1.5rem;
+    width: 250px;
+    height: 40px;
+  }
+  .mainContainer {
+    display: flex;
+    gap: 25px;
+    margin: 0 17px;
+    margin-top: 21px;
+    max-width: 1268px;
+    margin: auto;
+  }
+}
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: #8176af;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+.project__imageContainer {
+  max-width: 80vw;
+  height: 307px;
+  padding: 15px;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+}
+.project__imageContainer-dark {
+  border: 3px solid black;
+  box-shadow: 10px 10px 10px rgb(42, 2, 42);
+  border-radius: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 280px;
+  height: auto;
+  gap: 5px;
+  margin: auto;
+  margin-top: -68px;
+  padding: 20px 15px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.card__darkmode {
+  background-color: black;
+  color: greenyellow;
+  box-shadow: 10px 10px 10px rgb(42, 2, 42);
+}
+.card__autor {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  font-family: "Catamaran", sans-serif;
+}
+.card__autor--image {
+  width: 70.5px;
+  height: 70.5px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.card__autor--job {
+  word-break: break-word;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+}
+.card__autor--name {
+  word-break: break-word;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+.card__infoProject {
+  width: 70%;
+}
+.card__infoProject--subtitle {
+  word-break: break-word;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+.card__infoProject--title {
+  word-break: break-word;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+}
+.card__infoProject--slogan {
+  word-break: break-word;
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+}
+.card__infoProject--desc {
+  word-break: break-word;
+  font-size: 0.8rem;
+  margin: 14px 0 18px;
+  font-family: "Poppins", sans-serif;
+  min-height: 48px;
+}
+.card__technologies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 1rem;
+  word-break: break-word;
+}
+.card__technologies--icons {
+  display: flex;
+  gap: 5px;
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
+.card__technologies--icons .icons__link {
+  color: #403a5f;
+}
+.card__technologies--icons .icons__link:hover {
+  color: orange;
+}
+
+@media screen and (min-width: 768px) {
+  .project {
+    /* &__imageContainer {
+      height: 79%;
+      width: auto;
+    } */
+  }
+  .project .card {
+    max-width: 423px;
+    width: auto;
+    padding: 25px 20px;
+  }
+  .project .card__autor--image {
+    width: 80px;
+  }
+  .project .card__autor--job {
+    font-size: 1rem;
+  }
+  .project .card__autor--name {
+    font-size: 1.2rem;
+  }
+  .project .card__infoProject--title {
+    font-size: 1.5rem;
+  }
+  .project .card__infoProject--slogan {
+    font-size: 1.2rem;
+  }
+  .project .card__infoProject--desc {
+    font-size: 0.8rem;
+  }
+  .project .card__technologies {
+    font-size: 1rem;
+  }
+  .project .card__technologies--icons {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .project__imageContainer {
+    width: 800px;
+  }
+  .project .card {
+    max-width: 550px;
+  }
+  .project .card__autor--image {
+    height: 120px;
+    width: 120px;
+  }
+  .project .card__autor--job {
+    font-size: 1.4rem;
+  }
+  .project .card__autor--name {
+    font-size: 1.8rem;
+  }
+  .project .card__infoProject--subtitle {
+    font-size: 1rem;
+  }
+  .project .card__infoProject--title {
+    font-size: 2rem;
+  }
+  .project .card__infoProject--slogan {
+    font-size: 1.4rem;
+  }
+  .project .card__infoProject--desc {
+    font-size: 1.1rem;
+  }
+  .project .card__technologies {
+    font-size: 1.2rem;
+  }
+  .project .card__technologies--icons {
+    font-size: 1.6rem;
+  }
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20%;
+  padding-bottom: 10px;
+}
+.description__title {
+  margin: 20px 0 8px 10px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+.description__text {
+  margin: 8px 51px 18px 63px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+.description__button {
+  width: 119.4px;
+  height: 25px;
+  margin: 3px 0 0 18px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: white;
+  background-color: #8176af;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .description__title {
+    font-size: 3.5rem;
+  }
+  .description__text {
+    font-size: 1.6rem;
+  }
+  .description__button {
+    font-size: 1.3rem;
+    width: 170px;
+    height: 35px;
+  }
+  .mainContainer {
+    display: flex;
+    gap: 15px;
+    margin: 0 17px;
+    margin-top: 21px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .description__title {
+    font-size: 4rem;
+  }
+  .description__text {
+    font-size: 1.8rem;
+  }
+  .description__button {
+    font-size: 1.5rem;
+    width: 250px;
+    height: 40px;
+  }
+  .mainContainer {
+    display: flex;
+    gap: 25px;
+    margin: 0 17px;
+    margin-top: 21px;
+    max-width: 1268px;
+    margin: auto;
+  }
+}/*# sourceMappingURL=main.css.map */
