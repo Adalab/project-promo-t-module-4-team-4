@@ -1,0 +1,193 @@
+@import '../core/var';
+
+.preview {
+  &__imageContainer {
+    max-width: 80vw;
+    height: 307px;
+    padding: 15px;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+    &-dark {
+      border: 3px solid black;
+      box-shadow: 10px 10px 10px rgb(42, 2, 42);
+      border-radius: 20px;
+    }
+  }
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 280px;
+  height: auto;
+  gap: 5px;
+  margin: auto;
+  margin-top: -68px;
+  padding: 20px 15px;
+  border-radius: 20px;
+  background-color: $white;
+  &__darkmode {
+    background-color: black;
+    color: greenyellow;
+    box-shadow: 10px 10px 10px rgb(42, 2, 42);
+  }
+  &__autor {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    font-family: $font-C;
+    &--image {
+      width: 70.5px;
+      border-radius: 50%;
+    }
+    &--job {
+      word-break: break-word;
+      font-size: 1rem;
+      text-align: center;
+      font-family: $font-C;
+    }
+    &--name {
+      word-break: break-word;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  &__infoProject {
+    width: 70%;
+    &--subtitle {
+      word-break: break-word;
+      text-align: center;
+      font-size: 0.8rem;
+      font-family: $font-P;
+    }
+    &--title {
+      word-break: break-word;
+      font-size: 1.4rem;
+      font-family: $font-P;
+    }
+    &--slogan {
+      word-break: break-word;
+      font-size: 1.2rem;
+      font-family: $font-P;
+    }
+    &--desc {
+      word-break: break-word;
+      font-size: 0.8rem;
+      margin: 14px 0 18px;
+      font-family: $font-P;
+      min-height: 48px;
+    }
+  }
+  &__technologies {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-C;
+    font-size: 1rem;
+    word-break: break-word;
+    &--icons {
+      display: flex;
+      gap: 5px;
+      font-size: 1.5rem;
+      padding-right: 10px;
+      .icons__link {
+        color: $dusk;
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .preview {
+    width: 50%;
+    &__imageContainer {
+      height: 79%;
+      width: auto;
+    }
+    & .card {
+      max-width: 423px;
+      height: 155px;
+      width: 300px;
+      padding: 25px 20px;
+      &__autor {
+        &--image {
+          width: 80px;
+        }
+        &--job {
+          font-size: 1rem;
+        }
+        &--name {
+          font-size: 1.2rem;
+        }
+      }
+      &__infoProject {
+        &--title {
+          font-size: 1.5rem;
+        }
+        &--slogan {
+          font-size: 1.2rem;
+        }
+        &--desc {
+          font-size: 0.8rem;
+        }
+      }
+      &__technologies {
+        font-size: 1rem;
+        &--icons {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .preview {
+    width: 50%;
+    &__imageContainer {
+      height: 74%;
+    }
+    & .card {
+      height: 200px;
+      width: 375px;
+      &__autor {
+        &--image {
+          width: 100px;
+        }
+        &--job {
+          font-size: 1.4rem;
+        }
+        &--name {
+          font-size: 1.8rem;
+        }
+      }
+      &__infoProject {
+        &--subtitle {
+          font-size: 1rem;
+        }
+        &--title {
+          font-size: 2rem;
+        }
+        &--slogan {
+          font-size: 1.4rem;
+        }
+        &--desc {
+          font-size: 1rem;
+        }
+      }
+      &__technologies {
+        font-size: 1.2rem;
+        &--icons {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

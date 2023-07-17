@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&family=Montserrat:wght@300;700&family=Poppins:wght@300&display=swap"
+        rel="stylesheet">
+    <title>Proyectos Molones</title>
+    <script src="https://kit.fontawesome.com/1aa62fa5ff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class='preview'>
+        <div class='preview__imageContainer preview__imageContainer-dark' style="background-image: url('<%= imageProject %>')"></div>
+        <section class='card'>
+            <div class='card__autor'>
+                <img class='card__autor--image' src='<%= photoAuthor %>' alt='user' />
+                <p class='card__autor--job'><%= jobAuthor %></p>
+                <p class='card__autor--'><%= nameAuthor %></p>
+            </div>
+            <div class='card__infoProject'>
+                <p class='card__infoProject--subtitle'>Personal Project Card</p>
+                <hr class='line' />
+                <h2 class='card__infoProject--title'><%= nameProject %></h2>
+                <p class='card__infoProject--slogan'><%= sloganProject %></p>
+                <p class='card__infoProject--desc'><%= descProject %></p>
+                <div class='card__technologies'>
+                    <p class='card__technologies--text'><%= typeProject %></p>
+                    <p class='card__technologies--text'><%= budgetProject %></p>
+                    <div class='card__technologies--icons'>
+                        <a href='<%= URLProject %>' class='icons__link' target='_blank' rel='noreferrer'>
+                            <i class='fa-solid fa-globe card__technologies--globe'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

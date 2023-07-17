@@ -5,6 +5,7 @@ const mysql = require('mysql2/promise');
 
 // server
 const server = express();
+server.set('view engine', 'ejs');
 
 // listen to the server
 const port = 4000;
@@ -13,13 +14,12 @@ server.listen(port, () => {
 });
 
 // server configuration
-
 server.use(cors());
 server.use(express.json({ limit: '25mb' }));
 
 // endpoints
 server.get('/', function (req, res) {
-  res.send('This is a landing page');
+  res.send('You started the server :D');
 });
 
 server.get('/api/projects', async (req, res) => {
@@ -46,8 +46,6 @@ async function getConnection() {
 
 server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
-  console.log(body)
-
   let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
   const connect = await getConnection();
   const [result] = await connect.query(insertAuthors, [
@@ -57,9 +55,7 @@ server.post('/api/projects/add', async (req, res) => {
     body.photo
   ]);
   const idAuthor = result.insertId;
-
   let insertProject = 'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
-
   const [resultProject] = await connect.query(insertProject, [
     body.name,
     body.slogan,
@@ -70,12 +66,19 @@ server.post('/api/projects/add', async (req, res) => {
     body.image,
     idAuthor
   ]);
-
-
   res.json({
     success: true,
     cardURL: `http://localhost:4000/project/${resultProject.insertId}`
   })
-
 })
+
+// Detalle proyecto motor de plantillas
+server.get('/project/:idProject', async (req, res) => {
+  const id = req.params.idProject;
+  const query = "SELECT * FROM users INNER JOIN projects ON fk_author = idAuthor WHERE idproject = ?";
+  const connect = await getConnection();
+  const [results] = await connect.query(query, id);
+  res.render('projectDetail', results[0]);
+  connect.end();
+});
 
