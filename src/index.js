@@ -48,14 +48,10 @@ server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
   let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
   const connect = await getConnection();
-  const [result] = await connect.query(insertAuthors, [
-    body.autor,
-    body.intention,
-    body.job,
-    body.image
-  ]);
+  const [result] = await connect.query(insertAuthors, [body.autor, body.intention, body.job, body.image]);
   const idAuthor = result.insertId;
-  let insertProject = 'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
+  let insertProject =
+    'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
   const [resultProject] = await connect.query(insertProject, [
     body.name,
     body.slogan,
@@ -64,22 +60,27 @@ server.post('/api/projects/add', async (req, res) => {
     body.type,
     body.desc,
     body.photo,
-    idAuthor
+    idAuthor,
   ]);
   res.json({
     success: true,
-    cardURL: `http://localhost:4000/project/${resultProject.insertId}`
-  })
-})
+    cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
+  });
+});
 
 // Detalle proyecto motor de plantillas
 server.get('/project/:idProject', async (req, res) => {
   const id = req.params.idProject;
-  const query = "SELECT * FROM users INNER JOIN projects ON fk_author = idAuthor WHERE idproject = ?";
+  const query = 'SELECT * FROM users INNER JOIN projects ON fk_author = idAuthor WHERE idproject = ?';
   const connect = await getConnection();
   const [results] = await connect.query(query, id);
-  res.render('projectDetail', results[0]);
-  connect.end();
+  if (results.length < 1) {
+    res.render('notFound');
+    connect.end();
+  } else {
+    res.render('projectDetail', results[0]);
+    connect.end();
+  }
 });
 
 // estáticos

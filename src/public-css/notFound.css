@@ -1,0 +1,33 @@
+/* colors */
+/* fonts */
+.body {
+  background-color: #8176af;
+}
+.body__title {
+  margin: 20px 0 8px 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+.body__button--link {
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  max-width: 120px;
+  padding: 3px 20px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  background-color: #fff;
+  color: #302c42;
+}
+.body__button--link:hover {
+  background-color: #302c42;
+  color: #fff;
+}/*# sourceMappingURL=notFound.css.map */
