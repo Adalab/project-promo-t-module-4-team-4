@@ -17,6 +17,19 @@ server.listen(port, () => {
 server.use(cors());
 server.use(express.json({ limit: '25mb' }));
 
+// connection to database
+async function getConnection() {
+  const connection = await mysql.createConnection({
+    host: 'sql.freedb.tech',
+    database: 'freedb_projectTown-adalab',
+    user: 'freedb_mayor',
+    password: 'zW#87qcc4PT5u#b',
+  });
+  await connection.connect();
+  console.log(`Connection successful with database (identifier=${connection.threadId})`);
+  return connection;
+}
+
 // endpoints
 server.get('/', function (req, res) {
   res.send('You started the server :D');
@@ -30,19 +43,6 @@ server.get('/api/projects', async (req, res) => {
   res.json(results);
   connection.end();
 });
-
-// connection to database
-async function getConnection() {
-  const connection = await mysql.createConnection({
-    host: 'sql.freedb.tech',
-    database: 'freedb_projectTown-adalab',
-    user: 'freedb_mayor',
-    password: 'zW#87qcc4PT5u#b',
-  });
-  await connection.connect();
-  console.log(`Connection successful with database (identifier=${connection.threadId})`);
-  return connection;
-}
 
 server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
@@ -83,6 +83,5 @@ server.get('/project/:idProject', async (req, res) => {
 });
 
 // estáticos
-
 const pathServerPublicStyles = './src/public-css';
 server.use(express.static(pathServerPublicStyles));

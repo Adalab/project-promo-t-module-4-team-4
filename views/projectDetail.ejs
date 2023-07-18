@@ -20,7 +20,7 @@
         </section>
         <section class='project'>
             <div class='project__imageContainer project__imageContainer-dark' style="background-image: url('<%= imageProject %>')"></div>
-            <section class='card'>
+            <section class="card  <%= ((intentionAuthor===1 ) ? 'card__darkmode' : '') %>">
                 <div class='card__autor'>
                     <div class="card__autor--image" style="background-image: url('<%= photoAuthor %>')"></div>
                     <p class='card__autor--job'><%= jobAuthor %></p>
