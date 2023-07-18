@@ -6,9 +6,7 @@
   align-items: center;
   max-width: 320px;
   width: 90%;
-  //height: auto;
   gap: 5px;
-  //margin: auto;
   padding: 20px 15px;
   border-radius: 20px;
   background-color: $white;
@@ -45,7 +43,7 @@
     &--subtitle {
       word-break: break-word;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-family: $font-P;
     }
     &--title {
@@ -62,7 +60,7 @@
       word-break: break-word;
       font-size: 0.8rem;
       margin: 14px 0 18px;
-      font-family: $font-P;
+      font-family: $font-C;
       min-height: 48px;
     }
   }

@@ -8,19 +8,19 @@
   &__title {
     margin: 20px 0 8px 10px;
     font-size: 3rem;
-    font-weight: bold;
     text-align: center;
     color: white;
     font-family: $font-M;
+    letter-spacing: 1px;
   }
 
   &__text {
     margin: 8px 51px 18px 63px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1.6rem;
     text-align: center;
     color: white;
-    font-family: $font-M;
+    font-family: $font-C;
+    font-weight: bold;
   }
 
   &__button {
@@ -35,7 +35,7 @@
     background-color: #8176af;
     text-transform: uppercase;
     border-radius: 20px;
-    font-family: $font-P;
+    font-family: $font-C;
     cursor: pointer;
   }
 }

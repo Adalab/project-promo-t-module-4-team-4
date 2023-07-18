@@ -15,9 +15,10 @@
     color: $white;
     font-size: 3rem;
     margin-top: 17px;
-    font-weight: bold;
+    letter-spacing: 1px;
   }
   &__ask-info {
+    font-family: $font-C;
     color: $white;
     font-size: 1.5rem;
     margin-top: 18px;
@@ -48,7 +49,7 @@
       padding-left: 17px;
       &::placeholder {
         color: $white;
-        font-family: $font-M;
+        font-family: $font-C;
       }
 
       &.budget,
@@ -58,7 +59,7 @@
       }
     }
     &--select {
-      font-family: $font-M;
+      font-family: $font-C;
       background-color: $dark-lilac;
       border-radius: 40px;
       height: 32px;
@@ -76,7 +77,7 @@
       padding-left: 17px;
       &::placeholder {
         color: $white;
-        font-family: $font-M;
+        font-family: $font-C;
       }
     }
   }
@@ -98,18 +99,18 @@
       padding-left: 17px;
       &::placeholder {
         color: $white;
-        font-family: $font-M;
+        font-family: $font-C;
       }
     }
     &--label {
       color: $white;
       font-size: 1.2rem;
-      font-weight: bold;
       text-align: center;
       margin-top: 10px;
+      font-family: $font-C;
     }
     &--select {
-      font-family: $font-M;
+      font-family: $font-C;
       background-color: $dark-lilac;
       border-radius: 40px;
       height: 32px;
@@ -145,7 +146,6 @@
       text-align: center;
     }
   }
-
   &__submit {
     display: flex;
     justify-content: center;
@@ -160,7 +160,7 @@
       border-radius: 40px;
       font-size: 1rem;
       font-weight: bold;
-      font-family: $font-M;
+      font-family: $font-C;
       border: solid 2px rgb(75, 75, 75);
       width: 140px;
       cursor: pointer;
@@ -171,8 +171,7 @@
       height: 31px;
       border-radius: 40px;
       font-size: 1rem;
-      font-weight: bold;
-      font-family: $font-M;
+      font-family: $font-C;
       border: solid 2px $white;
       width: 140px;
       cursor: pointer;
