@@ -10,10 +10,11 @@ const callToApi = (data) => {
     });
 };
 
-const getApiProjects = async () => {
-  const response = await fetch('http://localhost:4000/api/projects');
+const getApiProjects = async (params) => {
+  const response = await fetch(`http://localhost:4000/api/projects?page=${params}`);
   const dataJson = await response.json();
-  
+  console.log(dataJson);
+  console.log(params);
   return dataJson;
 };
 

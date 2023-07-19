@@ -1,3 +1,5 @@
+@import '../core/var';
+
 .project__list {
     display: flex;
     flex-wrap: wrap;
@@ -8,4 +10,53 @@
     margin: auto;
     height: 100%;
     padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    &_text {
+        font-size: 1.2rem;
+        color: white;
+        font-family: $font-C;
+    }
+    &__button {
+        padding: 5px 20px;
+        font-size: 1rem;
+        text-align: center;
+        font-weight: bold;
+        font-size: 10px;
+        color: white;
+        background-color: #8176af;
+        text-transform: uppercase;
+        border-radius: 20px;
+        font-family: $font-C;
+        cursor: pointer;
+      }
+}
+
+@media screen and (min-width: 768px) {
+    .pagination {
+        &_text {
+            font-size: 1.6rem;
+        }
+        &__button {
+            padding: 7px 25px;
+            font-size: 1.5rem;
+          }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .pagination {
+        &_text {
+            font-size: 1.8rem;
+        }
+        &__button {
+            padding: 7px 30px;
+            font-size: 1.7rem;
+          }
+    }
 }

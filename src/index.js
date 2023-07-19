@@ -37,7 +37,9 @@ server.get('/', function (req, res) {
 
 server.get('/api/projects', async (req, res) => {
   console.log('Retrieving Projects data from database');
-  let sql = 'SELECT * FROM projects JOIN users ON projects.fk_author = users.idAuthor;';
+  console.log(req.query.page-1);
+  const currentPage = req.query.page-1;
+  let sql = `SELECT * FROM projects JOIN users ON projects.fk_author = users.idAuthor LIMIT 4 OFFSET ${currentPage * 4}`;
   const connection = await getConnection();
   const [results, fields] = await connection.query(sql);
   res.json(results);

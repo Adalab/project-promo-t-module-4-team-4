@@ -55,8 +55,20 @@ function App() {
     setData(clonedData);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const prevPage = () => {
+        if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
   useEffect(() => {
-    objectApi.getApiProjects().then((data) => {
+    objectApi.getApiProjects(currentPage).then((data) => {
       const cleanData = data.map((eachProject) => ({
         id: eachProject.idproject,
         name: eachProject.nameProject,
@@ -75,14 +87,14 @@ function App() {
     });
 
     // clean data
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className='container'>
       <main className='main'>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/projects' element={<ProjectList projectList={projectList} />} />
+          <Route path='/projects' element={<ProjectList projectList={projectList} currentPage={currentPage} prevPage={prevPage} nextPage={nextPage} />} />
           <Route
             path='/new-project'
             element={
