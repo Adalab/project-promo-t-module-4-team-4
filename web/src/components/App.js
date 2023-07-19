@@ -12,6 +12,7 @@ import ProjectList from './ProjectList';
 import Description from './Description';
 import Landing from './Landing';
 import objectApi from '../services/api';
+import NotFound from './NotFound';
 
 //Usar una variable objeto para todos los inputs
 
@@ -108,6 +109,7 @@ function App() {
               </section>
             }
           ></Route>
+          <Route path='*' element={<NotFound text={'Volver'} link={'/'} />} />
         </Routes>
       </main>
       <Footer logo={logo} />
