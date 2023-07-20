@@ -34,10 +34,6 @@ async function getConnection() {
 
 const SIZE_PAGE = 4;
 // endpoints
-server.get('/', function (req, res) {
-  res.send('You started the server :D');
-});
-
 server.get('/api/projects', async (req, res) => {
   console.log('Retrieving Projects data from database');
   const connection = await getConnection();
