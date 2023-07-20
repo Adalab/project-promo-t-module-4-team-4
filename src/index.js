@@ -102,3 +102,4 @@ server.get('/project/:idProject', async (req, res) => {
 // estáticos
 const pathServerPublicStyles = './src/public-css';
 server.use(express.static(pathServerPublicStyles));
+server.use(express.static('./src/public'));
