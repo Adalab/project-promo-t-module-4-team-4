@@ -2,28 +2,30 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
+const dotenv = require('dotenv');
 
 // server
 const server = express();
 server.set('view engine', 'ejs');
 
 // listen to the server
-const port = 4000;
+const port = process.env.PORT || 4000;
 server.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
 
 // server configuration
 server.use(cors());
+dotenv.config();
 server.use(express.json({ limit: '25mb' }));
 
 // connection to database
 async function getConnection() {
   const connection = await mysql.createConnection({
-    host: 'sql.freedb.tech',
-    database: 'freedb_projectTown-adalab',
-    user: 'freedb_mayor',
-    password: 'zW#87qcc4PT5u#b',
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    user: process.env.MAYORUSER,
+    password: process.env.PASS,
   });
   await connection.connect();
   console.log(`Connection successful with database (identifier=${connection.threadId})`);
