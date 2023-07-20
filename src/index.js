@@ -30,6 +30,7 @@ async function getConnection() {
   return connection;
 }
 
+const SIZE_PAGE = 4;
 // endpoints
 server.get('/', function (req, res) {
   res.send('You started the server :D');
@@ -37,12 +38,23 @@ server.get('/', function (req, res) {
 
 server.get('/api/projects', async (req, res) => {
   console.log('Retrieving Projects data from database');
-  console.log(req.query.page-1);
-  const currentPage = req.query.page-1;
-  let sql = `SELECT * FROM projects JOIN users ON projects.fk_author = users.idAuthor LIMIT 4 OFFSET ${currentPage * 4}`;
   const connection = await getConnection();
-  const [results, fields] = await connection.query(sql);
-  res.json(results);
+  const allProjects = `SELECT * FROM projects`;
+  const [allResults] = await connection.query(allProjects);
+  const numResults = parseInt(allResults.length);
+  console.log(numResults);
+  const numPages = Math.ceil(numResults / SIZE_PAGE);
+  const currentPage = parseInt(req.query.page) || 0;
+  let sql = `SELECT * FROM projects JOIN users ON projects.fk_author = users.idAuthor LIMIT ? OFFSET ?`;
+  const [results, fields] = await connection.query(sql, [SIZE_PAGE, currentPage * SIZE_PAGE]);
+  res.json({
+    info: {
+      page: currentPage,
+      pageCount: numResults,
+      next: currentPage === numPages - 1 ? null : `http://localhost:4000/api/projects?page=${currentPage + 1}`,
+      prev: currentPage === 0 ? null : `http://localhost:4000/api/projects?page=${currentPage - 1}`
+    },
+    results});
   connection.end();
 });
 

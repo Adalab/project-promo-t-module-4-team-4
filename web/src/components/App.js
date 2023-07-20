@@ -56,21 +56,26 @@ function App() {
     setData(clonedData);
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const prevPage = () => {
-        if (currentPage > 1) {
+        if (currentPage >= 1) {
       setCurrentPage(currentPage - 1);
     }
   };
 
   const nextPage = () => {
-    setCurrentPage(currentPage + 1);
+    objectApi.getApiProjects(currentPage)
+      .then((data) => {
+        if(data.info.next !== null) {
+          setCurrentPage(currentPage + 1);
+        }
+      })
   };
 
   useEffect(() => {
     objectApi.getApiProjects(currentPage).then((data) => {
-      const cleanData = data.map((eachProject) => ({
+      const cleanData = data.results.map((eachProject) => ({
         id: eachProject.idproject,
         name: eachProject.nameProject,
         slogan: eachProject.sloganProject,
