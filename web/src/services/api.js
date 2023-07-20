@@ -1,5 +1,5 @@
 const callToApi = (data) => {
-  return fetch('http://localhost:4000/api/projects/add', {
+  return fetch('http://project-promo-t-module-4-team-4.onrender.com/api/projects/add', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(data),
@@ -11,7 +11,7 @@ const callToApi = (data) => {
 };
 
 const getApiProjects = async (params) => {
-  const response = await fetch(`http://localhost:4000/api/projects?page=${params}`);
+  const response = await fetch(`http://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${params}`);
   const dataJson = await response.json();
   console.log(dataJson);
   console.log(params);

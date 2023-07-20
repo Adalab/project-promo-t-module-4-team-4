@@ -49,8 +49,8 @@ server.get('/api/projects', async (req, res) => {
     info: {
       page: currentPage,
       pageCount: numResults,
-      next: currentPage === numPages - 1 ? null : `http://localhost:4000/api/projects?page=${currentPage + 1}`,
-      prev: currentPage === 0 ? null : `http://localhost:4000/api/projects?page=${currentPage - 1}`
+      next: currentPage === numPages - 1 ? null : `http://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage + 1}`,
+      prev: currentPage === 0 ? null : `http://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage - 1}`
     },
     results});
   connection.end();
@@ -76,7 +76,7 @@ server.post('/api/projects/add', async (req, res) => {
   ]);
   res.json({
     success: true,
-    cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
+    cardURL: `http://project-promo-t-module-4-team-4.onrender.com/project/${resultProject.insertId}`,
   });
 });
 
