@@ -113,7 +113,7 @@ server.post('/api/projects/add', async (req, res) => {
       connect.end();
       res.json({
         success: true,
-        cardURL: `https://project-promo-t-module-4-team-4.onrender.com//project/${resultProject.insertId}`,
+        cardURL: `https://project-promo-t-module-4-team-4.onrender.com/project/${resultProject.insertId}`,
       });
     } catch (e) {
       res.json({
