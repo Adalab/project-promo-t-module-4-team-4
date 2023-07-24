@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/layout/Header.scss';
-import phone from '../images/phone.png'
+import phone from '../images/phone.png';
+import logoT from '../images/logo-townsville-2.svg';
 
 const Header = (props) => {
   return (
@@ -12,7 +13,7 @@ const Header = (props) => {
       </div>
       </Link>
       <div className='header__img'>
-        <img className='header__logo' src={props.logo} alt='logo Adalab' />
+        <img className='header__logo' src={logoT} alt='logo Adalab' />
       </div>
     </header>
   );

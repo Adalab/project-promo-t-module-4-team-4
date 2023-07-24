@@ -135,11 +135,14 @@
     font-size: 1.5rem;
     margin-bottom: 25px;
     &--success {
+      font-family: $font-C;
       display: block;
       text-align: center;
       padding-top: 15px;
     }
     &--error {
+      font-family: $font-C;
+      color: orange;
       display: block;
       padding-top: 15px;
       margin-top: 15px;
@@ -180,6 +183,7 @@
 }
 
 .success__link {
+  font-family: $font-C;
   font-size: smaller;
   color: orange;
   &:hover {

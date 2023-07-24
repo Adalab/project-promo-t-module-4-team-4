@@ -105,7 +105,7 @@ function App() {
             path='/new-project'
             element={
               <section className='newproject'>
-                <Header logo={logo} />
+                <Header />
                 <Description text={'Ver proyectos'} link={'/projects'} />
                 <section className='mainContainer'>
                   <Preview image={user} data={data} />
