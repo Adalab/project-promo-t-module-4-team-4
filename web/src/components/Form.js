@@ -38,11 +38,10 @@ const Form = (props) => {
     );
   };
 
-  const renderMsgError = () => {
+  const renderMsgError = (dataAPI) => {
     return (
       <span className='form__card--error'>
-        Ha habido un error al crear la tarjeta. Compruebe que todos los campos
-        están rellenos
+        {dataAPI.message}
       </span>
     );
   };

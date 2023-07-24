@@ -49,8 +49,14 @@ server.get('/api/projects', async (req, res) => {
     info: {
       page: currentPage,
       pageCount: numResults,
-      next: currentPage === numPages - 1 ? null : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage + 1}`,
-      prev: currentPage === 0 ? null : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage - 1}`
+      next:
+        currentPage === numPages - 1
+          ? null
+          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage + 1}`,
+      prev:
+        currentPage === 0
+          ? null
+          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage - 1}`,
     },
     results,
   });
@@ -59,7 +65,7 @@ server.get('/api/projects', async (req, res) => {
 
 server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
-  try {
+  /*   try {
     if (
       body.autor !== '' &&
       body.intention !== '' &&
@@ -67,51 +73,49 @@ server.post('/api/projects/add', async (req, res) => {
       body.image !== '' &&
       body.name !== '' &&
       body.slogan !== '' &&
-      body.link !== '' &&
-      body.budget !== '' &&
       body.type !== '' &&
       body.desc !== '' &&
-      body.photo !== '' &&
-      idAuthor
-    ) {
-      let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
-      const connect = await getConnection();
-      const [result] = await connect.query(insertAuthors, [
-        body.autor,
-        parseInt(body.intention) || 0,
-        body.job,
-        body.image,
-      ]);
-      const idAuthor = result.insertId;
-      let insertProject =
-        'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
-      const [resultProject] = await connect.query(insertProject, [
-        body.name,
-        body.slogan,
-        body.link,
-        parseInt(body.budget) || 0,
-        body.type,
-        body.desc,
-        body.photo,
-        idAuthor,
-      ]);
-      connect.end();
-      res.json({
-        success: true,
-        cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
-      });
-    } else {
+      body.photo !== ''
+    ) { */
+  let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
+  const connect = await getConnection();
+  const [result] = await connect.query(insertAuthors, [
+    body.autor,
+    parseInt(body.intention) || 0,
+    body.job,
+    body.image,
+  ]);
+  console.log(result);
+  const idAuthor = result.insertId;
+  let insertProject =
+    'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
+  const [resultProject] = await connect.query(insertProject, [
+    body.name,
+    body.slogan,
+    body.link,
+    parseInt(body.budget) || 0,
+    body.type,
+    body.desc,
+    body.photo,
+    idAuthor,
+  ]);
+  connect.end();
+  res.json({
+    success: true,
+    cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
+  });
+  /* } else {
       res.json({
         success: false,
         message: 'Faltan campos por rellenar',
       });
-    }
-  } catch (e) {
+    }  */
+  /* } catch (e) {
     res.json({
       success: false,
       message: 'No se ha podido crar la tarjeta: ' + e,
     });
-  }
+  } */
 });
 
 // Detalle proyecto motor de plantillas
