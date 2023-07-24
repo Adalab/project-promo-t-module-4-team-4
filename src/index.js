@@ -52,32 +52,66 @@ server.get('/api/projects', async (req, res) => {
       next: currentPage === numPages - 1 ? null : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage + 1}`,
       prev: currentPage === 0 ? null : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage - 1}`
     },
-    results});
+    results,
+  });
   connection.end();
 });
 
 server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
-  let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
-  const connect = await getConnection();
-  const [result] = await connect.query(insertAuthors, [body.autor, body.intention, body.job, body.image]);
-  const idAuthor = result.insertId;
-  let insertProject =
-    'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
-  const [resultProject] = await connect.query(insertProject, [
-    body.name,
-    body.slogan,
-    body.link,
-    body.budget,
-    body.type,
-    body.desc,
-    body.photo,
-    idAuthor,
-  ]);
-  res.json({
-    success: true,
-    cardURL: `https://project-promo-t-module-4-team-4.onrender.com/project/${resultProject.insertId}`,
-  });
+  try {
+    if (
+      body.autor !== '' &&
+      body.intention !== '' &&
+      body.job !== '' &&
+      body.image !== '' &&
+      body.name !== '' &&
+      body.slogan !== '' &&
+      body.link !== '' &&
+      body.budget !== '' &&
+      body.type !== '' &&
+      body.desc !== '' &&
+      body.photo !== '' &&
+      idAuthor
+    ) {
+      let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
+      const connect = await getConnection();
+      const [result] = await connect.query(insertAuthors, [
+        body.autor,
+        parseInt(body.intention) || 0,
+        body.job,
+        body.image,
+      ]);
+      const idAuthor = result.insertId;
+      let insertProject =
+        'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
+      const [resultProject] = await connect.query(insertProject, [
+        body.name,
+        body.slogan,
+        body.link,
+        parseInt(body.budget) || 0,
+        body.type,
+        body.desc,
+        body.photo,
+        idAuthor,
+      ]);
+      connect.end();
+      res.json({
+        success: true,
+        cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: 'Faltan campos por rellenar',
+      });
+    }
+  } catch (e) {
+    res.json({
+      success: false,
+      message: 'No se ha podido crar la tarjeta: ' + e,
+    });
+  }
 });
 
 // Detalle proyecto motor de plantillas
