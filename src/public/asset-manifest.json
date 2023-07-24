@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.225d7a95.css",
-    "main.js": "./static/js/main.c28164d6.js",
+    "main.js": "./static/js/main.73508bf7.js",
     "static/media/landing_gif.gif": "./static/media/landing_gif.51d7af2880e21080ca4c.gif",
     "static/media/sadmayor.png": "./static/media/sadmayor.3c75cbe7ae9815377ead.png",
     "static/media/cover-townsville.webp": "./static/media/cover-townsville.141303fff304c7846d74.webp",
@@ -9,10 +9,10 @@
     "static/media/logo-townsville-2.svg": "./static/media/logo-townsville-2.f62f254db9d93179a711b644dced8c92.svg",
     "index.html": "./index.html",
     "main.225d7a95.css.map": "./static/css/main.225d7a95.css.map",
-    "main.c28164d6.js.map": "./static/js/main.c28164d6.js.map"
+    "main.73508bf7.js.map": "./static/js/main.73508bf7.js.map"
   },
   "entrypoints": [
     "static/css/main.225d7a95.css",
-    "static/js/main.c28164d6.js"
+    "static/js/main.73508bf7.js"
   ]
 }
