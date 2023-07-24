@@ -28,7 +28,9 @@ async function getConnection() {
     password: process.env.PASS,
   });
   await connection.connect();
-  console.log(`Connection successful with database (identifier=${connection.threadId})`);
+  console.log(
+    `Connection successful with database (identifier=${connection.threadId})`
+  );
   return connection;
 }
 
@@ -44,7 +46,10 @@ server.get('/api/projects', async (req, res) => {
   const numPages = Math.ceil(numResults / SIZE_PAGE);
   const currentPage = parseInt(req.query.page) || 0;
   let sql = `SELECT * FROM projects JOIN users ON projects.fk_author = users.idAuthor LIMIT ? OFFSET ?`;
-  const [results, fields] = await connection.query(sql, [SIZE_PAGE, currentPage * SIZE_PAGE]);
+  const [results, fields] = await connection.query(sql, [
+    SIZE_PAGE,
+    currentPage * SIZE_PAGE,
+  ]);
   res.json({
     info: {
       page: currentPage,
@@ -52,11 +57,15 @@ server.get('/api/projects', async (req, res) => {
       next:
         currentPage === numPages - 1
           ? null
-          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage + 1}`,
+          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${
+              currentPage + 1
+            }`,
       prev:
         currentPage === 0
           ? null
-          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${currentPage - 1}`,
+          : `https://project-promo-t-module-4-team-4.onrender.com/api/projects?page=${
+              currentPage - 1
+            }`,
     },
     results,
   });
@@ -65,7 +74,7 @@ server.get('/api/projects', async (req, res) => {
 
 server.post('/api/projects/add', async (req, res) => {
   const body = req.body;
-  /*   try {
+  
     if (
       body.autor !== '' &&
       body.intention !== '' &&
@@ -76,52 +85,56 @@ server.post('/api/projects/add', async (req, res) => {
       body.type !== '' &&
       body.desc !== '' &&
       body.photo !== ''
-    ) { */
-  let insertAuthors = 'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
-  const connect = await getConnection();
-  const [result] = await connect.query(insertAuthors, [
-    body.autor,
-    parseInt(body.intention) || 0,
-    body.job,
-    body.image,
-  ]);
-  console.log(result);
-  const idAuthor = result.insertId;
-  let insertProject =
-    'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
-  const [resultProject] = await connect.query(insertProject, [
-    body.name,
-    body.slogan,
-    body.link,
-    parseInt(body.budget) || 0,
-    body.type,
-    body.desc,
-    body.photo,
-    idAuthor,
-  ]);
-  connect.end();
-  res.json({
-    success: true,
-    cardURL: `http://localhost:4000/project/${resultProject.insertId}`,
-  });
-  /* } else {
+    ) {
+      try {
+      let insertAuthors =
+        'INSERT INTO users (nameAuthor, intentionAuthor, jobAuthor, photoAuthor) VALUES (?,?,?,?)';
+      const connect = await getConnection();
+      const [result] = await connect.query(insertAuthors, [
+        body.autor,
+        parseInt(body.intention) || 0,
+        body.job,
+        body.image,
+      ]);
+      console.log(result);
+      const idAuthor = result.insertId;
+      let insertProject =
+        'INSERT INTO projects (nameProject, sloganProject, URLProject, budgetProject, typeProject, descProject, imageProject, fk_author) VALUES (?,?,?,?,?,?,?,?)';
+      const [resultProject] = await connect.query(insertProject, [
+        body.name,
+        body.slogan,
+        body.link,
+        parseInt(body.budget) || 0,
+        body.type,
+        body.desc,
+        body.photo,
+        idAuthor,
+      ]);
+      connect.end();
+      res.json({
+        success: true,
+        cardURL: `https://project-promo-t-module-4-team-4.onrender.com//project/${resultProject.insertId}`,
+      });
+    } catch (e) {
+      res.json({
+        success: false,
+        message: 'No se ha podido crar la tarjeta: ' + e,
+      });
+    }
+    } else {
       res.json({
         success: false,
         message: 'Faltan campos por rellenar',
       });
-    }  */
-  /* } catch (e) {
-    res.json({
-      success: false,
-      message: 'No se ha podido crar la tarjeta: ' + e,
-    });
-  } */
+    }
+  
 });
 
 // Detalle proyecto motor de plantillas
 server.get('/project/:idProject', async (req, res) => {
   const id = req.params.idProject;
-  const query = 'SELECT * FROM users INNER JOIN projects ON fk_author = idAuthor WHERE idproject = ?';
+  const query =
+    'SELECT * FROM users INNER JOIN projects ON fk_author = idAuthor WHERE idproject = ?';
   const connect = await getConnection();
   const [results] = await connect.query(query, id);
   if (results.length < 1) {
